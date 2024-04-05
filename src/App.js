@@ -2,6 +2,7 @@ import React, {useReducer, useState} from 'react';
 import Meals from './components/Meals'
 import Header from './components/Header'
 import Modal from './components/UI/Modal'
+import Cart from "./components/Cart";
 import { CartProvider } from './store/CartContext';
 import ReactDOM from 'react-dom';
 
@@ -10,8 +11,7 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen); 
-    console.log('toggle')
+    setIsModalOpen(prevState => !prevState);
 };
  return (
   <>
@@ -19,9 +19,11 @@ const App = () => {
     <Header openModal={toggleModal} />
     <Meals />
     {ReactDOM.createPortal( 
-                <Modal isOpen={isModalOpen} toggleModal={toggleModal} />,
+                  <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+                  <Cart toggleModal={toggleModal} />
+                </Modal>,
                 document.getElementById('modal')
-            )}
+              )}
   </CartProvider>
   </>
   );

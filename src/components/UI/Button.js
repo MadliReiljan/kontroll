@@ -1,13 +1,11 @@
 import React from 'react';
 
-const Button = ({ textOnly, onClick, children }) => {
-    const buttonClass = textOnly ? 'text-button' : 'button';
-
+const Button = ({ className, type, onClick, disabled, children }) => {
     return (
-        <button className={buttonClass} onClick={onClick}>
-            {children}
-        </button>
+      <button className={className} type={type || 'button'} onClick={onClick} disabled={disabled}>
+        {children}
+      </button>
     );
-}
+  };
 
 export default Button;
