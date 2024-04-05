@@ -8,10 +8,10 @@ const MealItem = (props) => {
         currency: 'EUR'
     }).format(props.meal.price);
 
-    const { addItem } = useContext(CartContext); 
+    const { addToCart } = useContext(CartContext); 
 
     const handleAddToCart = () => {
-        addItem(props.meal); 
+        addToCart(props.meal); 
         console.log(props.meal);
     };
 

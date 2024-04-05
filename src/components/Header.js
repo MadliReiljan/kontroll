@@ -6,6 +6,7 @@ import { CartContext } from '../store/CartContext';
 const Header = () => {
     const { cartItems } = useContext(CartContext);
     console.log(cartItems);
+    const totalCount = cartItems.reduce((total, item) => total + item.quantity, 0);
     const handleButtonClick = () => {
     
     }
@@ -16,7 +17,7 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <Button textOnly onClick={handleButtonClick}>Cart ({cartItems.length})</Button>
+            <Button textOnly onClick={handleButtonClick}>Cart ({totalCount})</Button>
             </nav>
         </header>
     )
