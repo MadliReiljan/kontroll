@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import logo from '../assets/logo.jpg'
 import Button from './UI/Button.js'
 import { CartContext } from '../store/CartContext';
 
-const Header = () => {
+const Header = ({openModal}) => {
     const { cartItems } = useContext(CartContext);
     console.log(cartItems);
     const totalCount = cartItems.reduce((total, item) => total + item.quantity, 0);
@@ -17,7 +17,7 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <Button textOnly onClick={handleButtonClick}>Cart ({totalCount})</Button>
+            <Button textOnly onClick={openModal}>Cart ({totalCount})</Button>
             </nav>
         </header>
     )
