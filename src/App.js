@@ -6,9 +6,9 @@ const App = () => {
  return (
   <>
     <Header />
-     <main>
+     
       <Meals />
-     </main>
+     
   </>
   );
 }
